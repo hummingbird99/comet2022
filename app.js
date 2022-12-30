@@ -1,17 +1,17 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-const link = document.querySelector("a");
+const HIDDEN_CLASSNAME = "hidden";
 
 function onLoginSubmit(event) {
     event.preventDefault(); //preventDefault: 이벤트의 기본 동작을 실행하지 않는다.
-    console.log(loginInput.value); //페이지가(a 태그) 새로고침 되지 않고 변수의 value를 보여준다.
-}
-
-function handleLinkClick() {
-    alert("clicked!"); //alert로 인해 javascript 페이지 동작이 멈춘 후 href로 이동한다.
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    /*greeting.innerText = "Hello " + username;*/ //보기 어려운 예전 방식
+    greeting.innerText = `Hello ${username} keep going`; //javascript ES6에서 도입된 템플릿 문자열이다. `Stirg ${변수명}`
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
 loginForm.addEventListener("submit", onLoginSubmit); //submit 이벤트 발생 시 function 수행
-link.addEventListener("click", handleLinkClick); //click 이벤트 발생 시 function 수행
 
