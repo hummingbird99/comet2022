@@ -1,17 +1,28 @@
-const loginForm = document.querySelector("#login-form");
-const loginInput = document.querySelector("#login-form input");
-const greeting = document.querySelector("#greeting");
+const loginForm = document.querySelector("#login-form"); // form 태그 변수 선언
+const loginInput = document.querySelector("#login-form input"); // input 태그 변수 선언
+const greeting = document.querySelector("#greeting"); // h1 태그 변수 선언
 
-const HIDDEN_CLASSNAME = "hidden";
+const HIDDEN_CLASSNAME = "hidden"; // class 변수 선언
+const USERNAME_KEY = "username"; // local storage key 변수 선언
 
-function onLoginSubmit(event) {
-    event.preventDefault(); //preventDefault: 이벤트의 기본 동작을 실행하지 않는다.
-    loginForm.classList.add(HIDDEN_CLASSNAME);
-    const username = loginInput.value;
-    /*greeting.innerText = "Hello " + username;*/ //보기 어려운 예전 방식
-    greeting.innerText = `Hello ${username} keep going`; //javascript ES6에서 도입된 템플릿 문자열이다. `Stirg ${변수명}`
-    greeting.classList.remove(HIDDEN_CLASSNAME);
+function onLoginSubmit(event) { // 3.
+    event.preventDefault(); // event.preventDefault: 이벤트의 기본 동작을 실행하지 않는다. = submit event의 새로고침을 막는다.
+    loginForm.classList.add(HIDDEN_CLASSNAME); // class add = show the form
+    const username = loginInput.value; // input 값을 변수로 선언
+    localStorage.setItem(USERNAME_KEY, username); // 변수(value)와 key를 local storage에 저장
+    paintGreetings(username); // input 값을 인자로 function 수행
 }
 
-loginForm.addEventListener("submit", onLoginSubmit); //submit 이벤트 발생 시 function 수행
+function paintGreetings(username) { // 4.
+    greeting.innerText = `Hello ${username}`; // h1 id에 텍스트 추가
+    greeting.classList.remove(HIDDEN_CLASSNAME);// show the greetings
+}
 
+const savedUsername = localStorage.getItem(USERNAME_KEY); // 1. local storage에서 value 불러오기
+
+if(savedUsername === null) { // 2.
+    loginForm.classList.remove(HIDDEN_CLASSNAME) // class remove = show the form
+    loginForm.addEventListener("submit", onLoginSubmit); // submit 이벤트 발생 시 function 수행
+} else { // 5.
+    paintGreetings(savedUsername); // local storage의 value를 savedUsername 인자로 받고 function 수행
+}
