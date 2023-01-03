@@ -13,3 +13,4 @@ function getClock() {
 /* 시계 불러오기 */
 getClock() // clock 즉시 호출
 setInterval(getClock, 1000); // setInterval(method): 1초 간격으로 function 수행
+   
