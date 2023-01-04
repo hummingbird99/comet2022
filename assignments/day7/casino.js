@@ -1,18 +1,14 @@
 /* HTML 태그 변수 선언 */
-const positiveNum = document.querySelector("#generateNum");
-const chosenNum = document.querySelector("#guessNum");
+const generateNum = document.querySelector("#generateNum");
+const guessNum = document.querySelector("#guessNum");
+const submitBtn = document.querySelector("#submitBtn");
 const showUp = document.querySelector("#showUp");
 
+/* 변수 선언 */
+const rangeNum = generateNum.value;
+const inputNum = guessNum.value;
 
-const lotteryNum = "hidden";
-
-/* input  */
-function randomGame(event) {
-    const lotteryNum = positiveNum[Math.floor(Math.random() * 10)];
-    event.preventDefault();
-
-}
-
-function showUpText() {
-    showUp.innerText = `You chose: ${chosenNum}, the machine chose: ${lotteryNum}`;
+if (rangeNum === "" || inputNum === "") {
+    alert("Please select the number!");
+    return;
 }
