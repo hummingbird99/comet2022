@@ -20,6 +20,7 @@ function deleteToDo(event) {
     //console.log(event.target) event target의 객체 value 출력
     //console.dir(event.target) event target의 객체 property 출력
     const li = event.target.parentElement; // event 실행 -> target(button)의 부모 요소 지정
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
     li.remove();
 }
 
@@ -27,8 +28,9 @@ function deleteToDo(event) {
 /* to-do와 삭제 버튼 생성 */
 function paintToDo(newTodo) {
     const li = document.createElement("li"); // input ul에 li 생성
+    li.id = newTodo.id;
     const span = document.createElement("span"); // input ul에 span 생성
-    span.innerText = newTodo; // text node 삽입
+    span.innerText = newTodo.Text; // text node 삽입
     const button = document.createElement("button");
     button.innerText = "❌";
     button.addEventListener("click", deleteToDo); // button click시 function 실행
@@ -38,13 +40,17 @@ function paintToDo(newTodo) {
 }
 
 
-/* input form 핸들러 */
+/* input form handler */
 function handleToDoSubmit(event) {
     event.preventDefault();
     const newTodo = toDoInput.value; // input value를 새 변수에 담아두기
     toDoInput.value = ""; // input value 비우기
-    toDos.push(newTodo); // toDos 변수에 newTodo value push
-    paintToDo(newTodo); // function 실행
+    const newTodoObj = {
+        Text: newTodo,
+        id: Date.now(),
+    }; // array에 text가 아닌 object로 저장(중복값 구별을 위해 id 부여)
+    toDos.push(newTodoObj); // toDos 변수에 newTodo value push
+    paintToDo(newTodoObj); // function 실행
     saveToDos(); //function 실행
 }
 
@@ -59,6 +65,12 @@ if(savedToDos !== null) {
     // console.log(parsedToDos); js array임을 확인
     toDos = parsedToDos; // 비어있던 배열을 로컬스토리지 값으로 다시 채우기
     parsedToDos.forEach(paintToDo); // foreach(): 주어진 함수를 배열 요소 각각에 대해 실행, HTMLCollection.item(): 컬렉션 안의 특정 인덱스에 위치한 노드를 반환
+}
+
+
+
+function sexyFilter() {
+
 }
 
 
