@@ -23,4 +23,4 @@ function onGeoError() {
     alert("Can't find you. No weather for you.");
 }
 
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError); // 장치의 현재 위치 정보 호출
