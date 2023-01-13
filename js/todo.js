@@ -20,8 +20,8 @@ function deleteToDo(event) {
     //console.log(event.target) event target의 객체 value 출력
     //console.dir(event.target) event target의 객체 property 출력
     const li = event.target.parentElement; // event 실행 -> target(button)의 부모 요소 지정
-    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id));
     li.remove();
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(li.id)); // parseInt(): 문자열 인자를 파싱하여 특정 진수의 정수를 반환
 }
 
 
@@ -68,9 +68,5 @@ if(savedToDos !== null) {
 }
 
 
-
-function sexyFilter() {
-
-}
 
 
