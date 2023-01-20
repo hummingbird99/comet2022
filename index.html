@@ -5,33 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="#"> <!-- Cannot GET /favicon.ico 오류 해결 -->
+    <!-- Cannot GET /favicon.ico 오류 해결 -->
+    <link rel="shortcut icon" href="#">
     <title>Momentum App</title>
 </head>
 <body>
-    <form id="login-form" class="hidden"> <!-- Login form 숨기기/나타내기 -->
+    <!-- 백그라운드 불러오기 -->
+    <!-- <div id="container">
+    </div> -->
+    
+    <!-- 날씨 불러오기 -->
+    <div id="weather">
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 로그인 폼 구현 -->
+    <form id="login-form" class="hidden">
         <input
         required maxlength="15"
         type="text"
         placeholder="What is your name?"
         />
-        <input type="submit" value="Log In" /> <!-- 사용자로부터 input 값 받기 -->
+        <input type="submit" value="Log In" />
     </form>
+
+    <!-- 시계 구현 -->
     <h2 id="clock"></h2>
-    <h1 id="greeting" class="hidden"></h1> <!-- 로그인 확인 문장 숨기기/나타내기 -->
+
+    <!-- 로그인 확인 문장 숨기기/나타내기 -->
+    <h1 id="greeting" class="hidden"></h1>
+
+    <!-- To-Do 폼 구현 -->
     <form id="todo-form">
         <input id="todo-input" type="text" placeholder="Write a To Do and Press Enter" required />
     </form>
     <ul id="todo-list"></ul>
+
+    <!-- 인용문 구현 -->
     <div id="quote">
         <span></span>
         <span></span>
-    </div>
-    <div id="weather">
-        <span></span>
-        <span></span>
-    </div>
-    <div id="container">
     </div>
 </body>
 <script src="js/greetings.js"></script>

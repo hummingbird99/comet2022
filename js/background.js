@@ -11,4 +11,5 @@ const bgImage = document.createElement("img");
 bgImage.src = `img/${chosenImage}`;
 
 /* appendChild(node object): DOM 객체를 DOM 트리에 삽입 */
-document.body.querySelector("#container").appendChild(bgImage);
+// document.body.querySelector("#container").appendChild(bgImage);
+document.body.appendChild(bgImage);
