@@ -1,5 +1,5 @@
 /* 변수 선언 */
-const clock = document.querySelector("h2#clock"); // h2 id 변수 선언
+const clock = document.querySelector("div#clock"); // div id 변수 선언
 
 function getClock() {
     /* 시계 변수 선언 */ // 재사용할 수 있는 객체 코드 생성(생성자 함수 이용)
