@@ -42,13 +42,20 @@ const quotes = [
     }
 ];
 
-/* CSS pseudo element 변수 선언 */
-const quote = document.querySelector("#quote span:first-child");
-const korean = document.querySelector("#quote span:last-child");
+/* 랜덤으로 인용문 만들기 */
+function randomQuotes() {
+    /* CSS pseudo element 변수 선언 */
+    const quote = document.querySelector("#quote span:first-child");
+    const korean = document.querySelector("#quote span:last-child");
 
-/* floor, ceil, round = Properties of Math */
-const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    /* floor, ceil, round = Properties of Math */
+    const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-/* DOM 접근 메소드를 사용하여 text node 보내기 */
-quote.innerText = todaysQuote.quote;
-korean.innerText = todaysQuote.korean;
+    /* DOM 접근 메소드를 사용하여 text node 보내기 */
+    quote.innerText = todaysQuote.quote;
+    korean.innerText = todaysQuote.korean;
+}
+
+/* 인용문 불러오기 */
+randomQuotes()
+setInterval(randomQuotes, 20000);
