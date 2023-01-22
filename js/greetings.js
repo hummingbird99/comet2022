@@ -21,7 +21,7 @@ function onLoginSubmit(event) { // 3.
 
 /* 로컬 스토리지에서 키값 불러오기 */
 function paintGreetings(username) { // 4.
-    greeting.innerText = `Hello ${username}`; // div id에 텍스트 추가
+    greeting.innerText = `Hello ${username} !`; // div id에 텍스트 추가
     greeting.classList.remove(HIDDEN_CLASSNAME);// classList.remove() = show the greetings
 }
 

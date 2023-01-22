@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
     <!-- Cannot GET /favicon.ico 오류 해결 -->
     <link rel="shortcut icon" href="#">
     <title>Momentum App</title>
@@ -23,11 +28,16 @@
     <!-- 로그인 폼 구현 -->
     <form id="login-form" class="hidden">
         <input
+        id="login-input"
         required maxlength="15"
         type="text"
         placeholder="What is your name?"
         />
-        <input type="submit" value="Log In" />
+        <input
+        id="loginBtn"
+        type="image"
+        src="img/next-button.png"
+        alt="로그인" />
     </form>
 
     <!-- 시계 구현 -->
@@ -38,7 +48,7 @@
 
     <!-- To-Do 폼 구현 -->
     <form id="todo-form">
-        <input id="todo-input" type="text" placeholder="Write a To Do and Press Enter" required />
+        <input id="todo-input" type="text" placeholder="Write a To Do and Press Enter" required alt="할 일 작성" />
     </form>
     <ul id="todo-list"></ul>
 
