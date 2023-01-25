@@ -11,7 +11,7 @@ function onGeoOk(position) {
     fetch(url)  // fetch(): 서버 네트워크에 접근하고자 하는 API를 요청, 비동기 promise 객체로 반환
     .then((response) => response.json()) // then(): promise를 리턴하고 두 개의 콜백 함수를 인수로 받음(이행/거부), 순차적으로 처리
     .then((data) => {
-        // 개발자 툴에서 네트워크 확인하기
+        // 네트워크에서 데이터 확인하기
         const weatherIcon = data.weather[0].icon;
         const weatherIconAdrs = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png` // icon 불러오기
         const weather = document.querySelector("#weather img");
@@ -19,7 +19,9 @@ function onGeoOk(position) {
         const text = document.querySelector("#weather span:last-child");
         text.innerText = `${data.name} / ${data.main.temp}°`;
     });
+    document.img.addEventListener("mouseover", (event) => {weather.innerText = data.weather[0].description});
 }
+
 
 /* 함수가 좌표를 받지 못했을 때 실행 */
 function onGeoError() {
