@@ -19,7 +19,6 @@ function onGeoOk(position) {
         const text = document.querySelector("#weather span:last-child");
         text.innerText = `${data.name} / ${data.main.temp}°`;
     });
-    document.img.addEventListener("mouseover", (event) => {weather.innerText = data.weather[0].description});
 }
 
 
