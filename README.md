@@ -1,4 +1,4 @@
-# 🍨 Vanila JS 연습하기
+# 🍨 Vanilla JS 연습하기
 바닐라 자바스크립트로 크롬 앱 구현 
 <br><br><br>
 
